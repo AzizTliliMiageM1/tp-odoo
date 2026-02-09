@@ -40,6 +40,23 @@ a {
   padding: 64px 0 32px;
 }
 
+.site-header.hero {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-header.hero::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: -120px;
+  top: -160px;
+  background: radial-gradient(circle, rgba(212, 88, 42, 0.18), rgba(212, 88, 42, 0));
+  pointer-events: none;
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -52,6 +69,7 @@ a {
   font-size: 1.1rem;
   color: var(--muted);
   max-width: 640px;
+  margin: 0 auto;
 }
 
 .site-nav {
@@ -74,7 +92,12 @@ a {
 
 .nav-brand {
   font-weight: 600;
+  color: var(--ink);
+}
+
+.site-nav a[aria-current="page"] {
   color: var(--accent);
+  font-weight: 600;
 }
 
 main {
@@ -93,6 +116,12 @@ main {
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 12px 30px rgba(27, 31, 36, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(27, 31, 36, 0.12);
 }
 
 .card h2 {
@@ -106,6 +135,10 @@ main {
   margin-top: 16px;
 }
 
+.actions.center {
+  justify-content: center;
+}
+
 .button {
   background: var(--accent);
   color: #fff;
@@ -113,6 +146,7 @@ main {
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   font-weight: 600;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -126,6 +160,14 @@ main {
   background: transparent;
   color: var(--accent);
   border: 1px solid var(--accent);
+}
+
+.button.disabled {
+  background: #c9c1b4;
+  color: #fff;
+  cursor: default;
+  opacity: 0.85;
+  box-shadow: none;
 }
 
 .meta {
