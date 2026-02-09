@@ -1,0 +1,23 @@
+name: Build TP Odoo
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Create build archive
+        run: |
+          zip -r tp-odoo-build.zip .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tp-odoo-build
+          path: tp-odoo-build.zip
