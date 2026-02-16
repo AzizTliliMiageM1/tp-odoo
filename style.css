@@ -781,3 +781,79 @@ main {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+/* Styles pour sous-sections de cours */
+.sub-course {
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 138, 76, 0.2);
+  margin-top: 16px;
+}
+
+.sub-course h3 {
+  font-size: 1rem;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+
+.sub-course:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 12px;
+}
+
+/* Styles pour modules TP2 */
+.tp2-module {
+  padding: 20px;
+  margin: 20px 0;
+  background: linear-gradient(160deg, rgba(255, 138, 76, 0.06), rgba(255, 138, 76, 0.02));
+  border: 1px solid rgba(255, 138, 76, 0.15);
+  border-radius: 12px;
+}
+
+.tp2-module h3 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin: 0 0 16px;
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  background: rgba(18, 22, 28, 0.5);
+  border: 1px solid rgba(255, 138, 76, 0.1);
+  border-radius: 8px;
+  gap: 16px;
+}
+
+.course-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.course-title {
+  font-size: 0.95rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.course-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.course-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
