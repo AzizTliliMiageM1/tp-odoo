@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projets - Portfolio MIAGE</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .project-hero {
+      background: linear-gradient(135deg, rgba(255, 138, 76, 0.15), rgba(255, 138, 76, 0.05));
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255, 138, 76, 0.2);
+    }
+
+    .project-hero h2 {
+      background: linear-gradient(135deg, var(--ink), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+
+    .project-status {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(255, 138, 76, 0.1);
+      border: 1px solid rgba(255, 138, 76, 0.2);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .status-badge.completed::before {
+      content: "✓";
+      font-weight: bold;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .feature-card {
+      background: rgba(18, 22, 28, 0.5);
+      border: 1px solid rgba(255, 138, 76, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      background: rgba(18, 22, 28, 0.8);
+      border-color: rgba(255, 138, 76, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .feature-card h4 {
+      color: var(--accent);
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .tech-stack {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, rgba(255, 138, 76, 0.15), rgba(255, 138, 76, 0.05));
+      border: 1px solid rgba(255, 138, 76, 0.2);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--ink);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-github {
+      background: linear-gradient(135deg, #333, #1a1a1a);
+      color: #fff;
+      border: 1px solid #555;
+    }
+
+    .btn-github:hover {
+      background: linear-gradient(135deg, #444, #222);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-demo {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      box-shadow: 0 8px 16px rgba(255, 138, 76, 0.25);
+    }
+
+    .btn-demo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(255, 138, 76, 0.35);
+    }
+
+    .architecture-section {
+      background: linear-gradient(160deg, rgba(18, 22, 28, 0.95), rgba(11, 15, 21, 0.9));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .architecture-section h3 {
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .security-layers {
+      background: rgba(255, 138, 76, 0.05);
+      border-left: 3px solid var(--accent);
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .layer {
+      margin: 8px 0;
+      color: var(--muted);
+    }
+
+    .layer strong {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Navigation principale">
+    <div class="container">
+      <a href="index.html" class="nav-brand">Accueil</a>
+      <a href="travaux.html">Travaux</a>
+      <a href="cours.html">Cours</a>
+      <a href="projets.html" aria-current="page">Projets</a>
+      <a href="about.html">Profil</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="page-header">
+      <h1>Projets</h1>
+      <p class="lead">Projets académiques et applications production-ready.</p>
+    </header>
+
+    <!-- PROJET CRM SAAS -->
+    <section class="card">
+      <div class="project-hero">
+        <h2>🚀 CRM SaaS - Multi-Tenant Enterprise Architecture</h2>
+        <p class="muted">
+          Plateforme de gestion de la relation client production-ready démontrant une architecture SaaS moderne
+          avec sécurité multi-locataire, synchronisation temps réel et TypeScript full-stack.
+        </p>
+        
+        <div class="project-status">
+          <span class="status-badge completed">Production Ready</span>
+          <span class="status-badge completed">Architecture Enterprise</span>
+          <span class="status-badge completed">10/10 Features</span>
+          <span class="status-badge completed">Master MIAGE</span>
+        </div>
+      </div>
+
+      <!-- CARACTÉRISTIQUES PRINCIPALES -->
+      <h3 style="margin-top: 32px; margin-bottom: 16px;">✨ Caractéristiques principales</h3>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h4>🏢 Multi-Tenant</h4>
+          <p>Support de 1000+ organisations sans changement de code grâce à PostgreSQL RLS</p>
+        </div>
+        <div class="feature-card">
+          <h4>🔐 Sécurité Enterprise</h4>
+          <p>Row Level Security + JWT Auth + 3 couches de défense pour isolation des données</p>
+        </div>
+        <div class="feature-card">
+          <h4>⚡ Temps Réel</h4>
+          <p>WebSocket-powered live updates avec synchronisation instantanée</p>
+        </div>
+        <div class="feature-card">
+          <h4>📊 Dashboard Complet</h4>
+          <p>KPIs, graphiques temps réel, timeline d'activité et métriques de conversion</p>
+        </div>
+        <div class="feature-card">
+          <h4>🎯 Pipeline Kanban</h4>
+          <p>Board interactif avec drag-drop fluide (60fps) et animations lisses</p>
+        </div>
+        <div class="feature-card">
+          <h4>📧 Email Integration</h4>
+          <p>Intégration Brevo API avec gestion d'erreurs et circuit breaker</p>
+        </div>
+        <div class="feature-card">
+          <h4>🔍 Recherche Avancée</h4>
+          <p>Full-text search sur toutes les entités (companies, leads, contacts)</p>
+        </div>
+        <div class="feature-card">
+          <h4>📱 Mobile Responsive</h4>
+          <p>Design responsive complet avec dark mode natif et togglable</p>
+        </div>
+        <div class="feature-card">
+          <h4>💾 Export CSV</h4>
+          <p>Export de données pour reporting et intégration métier</p>
+        </div>
+        <div class="feature-card">
+          <h4>🎨 UI Optimisée</h4>
+          <p>Animations, transitions fluides et expérience utilisateur premium</p>
+        </div>
+      </div>
+
+      <!-- STACK TECHNOLOGIQUE -->
+      <h3 style="margin: 32px 0 16px;">🛠️ Stack Technologique</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+        <div>
+          <strong style="color: var(--accent);">Frontend</strong>
+          <div class="tech-stack">
+            <span class="tech-badge">Next.js 16</span>
+            <span class="tech-badge">React 19</span>
+            <span class="tech-badge">TypeScript 5</span>
+            <span class="tech-badge">Tailwind CSS 4</span>
+          </div>
+        </div>
+        <div>
+          <strong style="color: var(--accent);">Backend</strong>
+          <div class="tech-stack">
+            <span class="tech-badge">Next.js API</span>
+            <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">Supabase</span>
+          </div>
+        </div>
+        <div>
+          <strong style="color: var(--accent);">Services</strong>
+          <div class="tech-stack">
+            <span class="tech-badge">Brevo API</span>
+            <span class="tech-badge">WebSockets</span>
+            <span class="tech-badge">Vercel</span>
+            <span class="tech-badge">Turbopack</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARCHITECTURE DE SÉCURITÉ -->
+      <div class="architecture-section">
+        <h3>🏗️ Architecture Multi-Tenant Sécurisée</h3>
+        <p class="muted">3 couches de défense garantissant l'isolation des données :</p>
+        <div class="security-layers">
+          <div class="layer">
+            <strong>Couche 1 - Frontend :</strong> Validation des inputs et filtrage par organization_id
+          </div>
+          <div class="layer">
+            <strong>Couche 2 - API Middleware :</strong> Vérification JWT + validation ownership de l'organization
+          </div>
+          <div class="layer">
+            <strong>Couche 3 - Database RLS :</strong> Politiques PostgreSQL refusant l'accès inter-organisations
+          </div>
+        </div>
+        <p class="muted" style="margin-top: 12px; font-style: italic;">
+          Résultat : Isolation des données garantie et scalable à 1000+ organisations sans changement de code ✓
+        </p>
+      </div>
+
+      <!-- PERFORMANCES -->
+      <h3 style="margin: 32px 0 16px;">📊 Performance Metrics</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;">
+        <div style="background: rgba(255, 138, 76, 0.1); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+          <div style="color: var(--accent); font-weight: bold;">Dashboard Load</div>
+          <div style="color: var(--muted); font-size: 0.9rem;">&lt;1s (avec cache)</div>
+        </div>
+        <div style="background: rgba(255, 138, 76, 0.1); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+          <div style="color: var(--accent); font-weight: bold;">Build Time</div>
+          <div style="color: var(--muted); font-size: 0.9rem;">5.4s (Turbopack)</div>
+        </div>
+        <div style="background: rgba(255, 138, 76, 0.1); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+          <div style="color: var(--accent); font-weight: bold;">Drag-drop FPS</div>
+          <div style="color: var(--muted); font-size: 0.9rem;">60fps smooth</div>
+        </div>
+        <div style="background: rgba(255, 138, 76, 0.1); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+          <div style="color: var(--accent); font-weight: bold;">Real-time Latency</div>
+          <div style="color: var(--muted); font-size: 0.9rem;">&lt;100ms</div>
+        </div>
+        <div style="background: rgba(255, 138, 76, 0.1); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+          <div style="color: var(--accent); font-weight: bold;">Type Errors</div>
+          <div style="color: var(--muted); font-size: 0.9rem;">0 (Strict mode)</div>
+        </div>
+      </div>
+
+      <!-- DONNÉES DE DÉMONSTRATION -->
+      <h3 style="margin: 32px 0 16px;">📋 Données de Démonstration</h3>
+      <div style="background: rgba(18, 22, 28, 0.5); border: 1px solid rgba(255, 138, 76, 0.1); border-radius: 12px; padding: 20px;">
+        <p style="margin: 0; color: var(--muted);">
+          <strong>Organisations :</strong> Tesla, Apple, Microsoft, OpenAI<br/>
+          <strong>Pipeline Commercial :</strong> €280,000 en opportunités<br/>
+          <strong>Données :</strong> Chargeable via admin panel (clic pour charger)
+        </p>
+      </div>
+
+      <!-- COMPÉTENCES DÉMONTRÉES -->
+      <h3 style="margin: 32px 0 16px;">🎓 Compétences Démontrées</h3>
+      <ul style="color: var(--muted); line-height: 1.8;">
+        <li>✅ <strong>Architecture Enterprise</strong> - Patterns SaaS multi-locataire et scalabilité</li>
+        <li>✅ <strong>Sécurité Database</strong> - Row Level Security (RLS) et isolation des données</li>
+        <li>✅ <strong>Systèmes Temps Réel</strong> - WebSocket et synchronisation instantanée</li>
+        <li>✅ <strong>Full-Stack TypeScript</strong> - Cohérence de types frontend à backend</li>
+        <li>✅ <strong>Performance Optimization</strong> - Caching, pagination, code splitting</li>
+        <li>✅ <strong>Modern UI/UX</strong> - Design responsive, animations, dark mode</li>
+        <li>✅ <strong>API Design</strong> - Structure RESTful, middleware, gestion d'erreurs</li>
+        <li>✅ <strong>DevOps & Deployment</strong> - Build optimisé (Turbopack), pipeline Vercel</li>
+      </ul>
+
+      <!-- BOUTONS D'ACTION -->
+      <div class="project-links">
+        <a href="https://github.com/AzizTliliMiageM1/Projet-CRM" target="_blank" rel="noopener" class="btn-link btn-github">
+          📁 Voir sur GitHub
+        </a>
+        <a href="https://projet-9q3g6uxwj-aziztlilimiagem1s-projects.vercel.app/dashboard" target="_blank" rel="noopener" class="btn-link btn-demo">
+          🚀 Accéder à la Démo
+        </a>
+      </div>
+
+      <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center;">
+        <p class="muted" style="margin: 0; font-size: 0.9rem;">
+          CRM SaaS Production-Ready • Master MIAGE • Prêt pour présentation jury ✨
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Portfolio MIAGE - Aziz Tlili.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
