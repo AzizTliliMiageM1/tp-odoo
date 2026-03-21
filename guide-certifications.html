@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guide Certifications - Portfolio MIAGE</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .guide-container {
+      background: linear-gradient(160deg, rgba(18, 22, 28, 0.95), rgba(11, 15, 21, 0.9));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 24px 0;
+    }
+
+    .guide-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid rgba(255, 138, 76, 0.2);
+    }
+
+    .guide-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(255, 138, 76, 0.2), rgba(255, 138, 76, 0.1));
+      border: 2px solid rgba(255, 138, 76, 0.3);
+      border-radius: 12px;
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .guide-title-section h2 {
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+
+    .guide-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(255, 138, 76, 0.08);
+      border: 1px solid rgba(255, 138, 76, 0.15);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .step-list {
+      display: grid;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border-radius: 50%;
+      color: #fff;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .step-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .tip-box {
+      background: rgba(76, 192, 192, 0.08);
+      border-left: 3px solid #4cc0c0;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+
+    .tip-box strong {
+      color: #4cc0c0;
+    }
+
+    .warning-box {
+      background: rgba(255, 107, 107, 0.08);
+      border-left: 3px solid #ff6b6b;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+
+    .warning-box strong {
+      color: #ff6b6b;
+    }
+
+    .timeline-progress {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .progress-item {
+      background: rgba(18, 22, 28, 0.5);
+      border: 1px solid rgba(255, 138, 76, 0.1);
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .progress-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .duration {
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .checklist {
+      background: rgba(255, 138, 76, 0.05);
+      border: 1px solid rgba(255, 138, 76, 0.15);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+
+    .checklist ul {
+      margin: 0;
+      padding-left: 20px;
+      list-style: none;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 24px;
+      margin: 8px 0;
+      color: var(--muted);
+    }
+
+    .checklist li::before {
+      content: "☐";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .action-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-top: 12px;
+    }
+
+    .action-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(255, 138, 76, 0.3);
+    }
+
+    .guide-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .guide-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Navigation principale">
+    <div class="container">
+      <a href="index.html" class="nav-brand">Accueil</a>
+      <a href="travaux.html">Travaux</a>
+      <a href="cours.html">Cours</a>
+      <a href="projets.html">Projets</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="guide-certifications.html" aria-current="page">Guide</a>
+      <a href="about.html">Profil</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="page-header">
+      <h1>📖 Guide Complet des Certifications</h1>
+      <p class="lead">Tutoriels étape par étape pour compléter chaque certification avec succès.</p>
+    </header>
+
+    <!-- INTRODUCTION -->
+    <section class="card">
+      <h2>🎯 Comment Utiliser Ce Guide ?</h2>
+      <p>
+        Ce guide vous fournit des instructions détaillées pour chaque certification. Chaque section contient :
+      </p>
+      <ul style="color: var(--muted); line-height: 1.8;">
+        <li><strong>⏱️ Durée estimée</strong> - Temps nécessaire pour compléter la certification</li>
+        <li><strong>📋 Pré-requis</strong> - Ce dont vous avez besoin avant de commencer</li>
+        <li><strong>📝 Étapes détaillées</strong> - Instructions pas à pas</li>
+        <li><strong>✅ Checklist</strong> - Pour suivre votre progression</li>
+        <li><strong>💡 Conseils</strong> - Astuces et recommandations</li>
+      </ul>
+      <p style="color: var(--accent); margin-top: 20px; font-style: italic;">
+        Commencez par les certifications gratuites (HubSpot, CNIL, ANSSI) pour développer vos compétences progressivement.
+      </p>
+    </section>
+
+    <!-- 1. HUBSPOT ACADEMY -->
+    <div class="guide-layout">
+      <div class="guide-container">
+        <div class="guide-header">
+          <div class="guide-icon">🎯</div>
+          <div class="guide-title-section">
+            <h2>HubSpot Academy - Digital Marketing</h2>
+            <div class="guide-meta">
+              <span class="meta-item">⏱️ 8-10 heures</span>
+              <span class="meta-item">💰 Gratuit</span>
+              <span class="meta-item">📊 20 cours</span>
+            </div>
+          </div>
+        </div>
+
+        <h3>📋 Pré-requis</h3>
+        <ul style="color: var(--muted);">
+          <li>Compte email personnel</li>
+          <li>Connexion Internet stable</li>
+          <li>Aucune connaissance préalable requise</li>
+        </ul>
+
+        <h3>📝 Étapes Détaillées</h3>
+        <div class="step-list">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Accéder à HubSpot Academy</h3>
+              <p>Allez sur <strong>https://academy.hubspot.fr/courses/digital-marketing</strong></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Créer un compte</h3>
+              <p>Cliquez sur "S'inscrire" → Entrez votre email → Remplissez le formulaire → Validez votre email</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Commencer les modules</h3>
+              <p>Parcourez les 20 modules : Inbound Marketing, Email Marketing, Marketing Automation, HubSpot CRM</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Regarder les vidéos</h3>
+              <p>Chaque module contient des vidéos. Regardez-les activement et prenez des notes.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Répondre aux quiz</h3>
+              <p>À la fin de chaque module, répondez au quiz (généralement 5-10 questions). Minimum 80% pour passer.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3>Obtenir la certification</h3>
+              <p>Une fois tous les modules complétés → Badge LinkedIn débloqué → Téléchargez le certificat PDF</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Conseil :</strong> Les modules peuvent être suivis à votre rythme. Prenez des notes pendant les vidéos pour mieux retenir les informations.
+        </div>
+
+        <h3>✅ Checklist</h3>
+        <div class="checklist">
+          <ul>
+            <li>Compte HubSpot créé et email validé</li>
+            <li>Module 1-5 : Fondamentaux (complétés)</li>
+            <li>Module 6-12 : Marketing (complétés)</li>
+            <li>Module 13-18 : Automation (complétés)</li>
+            <li>Module 19-20 : HubSpot CRM (complétés)</li>
+            <li>Quiz final réussi (80% minimum)</li>
+            <li>Certificat téléchargé et sauvegardé</li>
+          </ul>
+        </div>
+
+        <a href="https://academy.hubspot.fr/courses/digital-marketing" target="_blank" rel="noopener" class="action-link">
+          🚀 Commencer la Certification
+        </a>
+      </div>
+
+      <!-- 2. CNIL MOOC -->
+      <div class="guide-container">
+        <div class="guide-header">
+          <div class="guide-icon">📋</div>
+          <div class="guide-title-section">
+            <h2>CNIL MOOC - RGPD 2024</h2>
+            <div class="guide-meta">
+              <span class="meta-item">⏱️ 3-4 heures</span>
+              <span class="meta-item">💰 Gratuit</span>
+              <span class="meta-item">🏛️ Officiel</span>
+            </div>
+          </div>
+        </div>
+
+        <h3>📋 Pré-requis</h3>
+        <ul style="color: var(--muted);">
+          <li>Compte email</li>
+          <li>Notions basiques en droit/compliance (conseillé)</li>
+          <li>1-2 heures par jour pendant 3-4 jours</li>
+        </ul>
+
+        <h3>📝 Étapes Détaillées</h3>
+        <div class="step-list">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Accéder à la plateforme CNIL</h3>
+              <p>Visitez <strong>https://www.cnil.fr/fr/comprendre-le-rgpd/le-mooc-de-la-cnil-est-de-retour-dans-une-nouvelle-version-enrichie</strong></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>S'inscrire au MOOC</h3>
+              <p>Créez un compte → Confirmez votre email → Acceptez les conditions d'utilisation</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Accéder aux 4 semaines</h3>
+              <p><strong>Semaine 1 :</strong> Introduction RGPD | <strong>Semaine 2 :</strong> Conformité | <strong>Semaine 3 :</strong> Droits des personnes | <strong>Semaine 4 :</strong> Mise en pratique</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Regarder les vidéos</h3>
+              <p>Chaque semaine : 4-5 vidéos (15-20 min chacune). Vidéos sous-titrées et téléchargeables.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Participer aux quiz</h3>
+              <p>Après chaque vidéo : questions de vérification (non notées). À la fin de semaine : quiz noté (60% minimum).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3>Donner du feedback</h3>
+              <p>Participez aux forums de discussion et partagez vos retours avec d'autres apprenants.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">7</div>
+            <div class="step-content">
+              <h3>Obtenir l'attestation</h3>
+              <p>Après 4 semaines : Attestation officielle CNIL (PDF) à télécharger et partager</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ Important :</strong> Le MOOC a lieu une fois par an (généralement février-mars). Vérifiez les dates d'inscription.
+        </div>
+
+        <h3>✅ Checklist</h3>
+        <div class="checklist">
+          <ul>
+            <li>Compte CNIL créé et vérifié</li>
+            <li>Semaine 1 : Vidéos et quiz complétés (60%+)</li>
+            <li>Semaine 2 : Vidéos et quiz complétés (60%+)</li>
+            <li>Semaine 3 : Vidéos et quiz complétés (60%+)</li>
+            <li>Semaine 4 : Vidéos et quiz complétés (60%+)</li>
+            <li>Participation au forum (au minimum 1 message)</li>
+            <li>Attestation officielle téléchargée</li>
+          </ul>
+        </div>
+
+        <a href="https://www.cnil.fr/fr/comprendre-le-rgpd/le-mooc-de-la-cnil-est-de-retour-dans-une-nouvelle-version-enrichie" target="_blank" rel="noopener" class="action-link">
+          🚀 S'Inscrire au MOOC CNIL
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. GOOGLE DIGITAL ACTIVE -->
+    <div class="guide-container">
+      <div class="guide-header">
+        <div class="guide-icon">🔍</div>
+        <div class="guide-title-section">
+          <h2>Google Digital Active - Certification</h2>
+          <div class="guide-meta">
+            <span class="meta-item">⏱️ 40 heures</span>
+            <span class="meta-item">💰 Gratuit (inscription)</span>
+            <span class="meta-item">🌍 International</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>📋 Pré-requis</h3>
+      <ul style="color: var(--muted);">
+        <li>Compte email</li>
+        <li>Intérêt pour le marketing digital et SEO/SEM</li>
+        <li>Disponibilité 5-6 heures par semaine pendant 8 semaines</li>
+      </ul>
+
+      <h3>📝 Étapes Détaillées</h3>
+      <div class="step-list">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Accéder au programme Google</h3>
+            <p>Cherchez "Google Digital Active" ou consultez <strong>https://digitalessentiel.fr/</strong> pour France</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>S'inscrire</h3>
+            <p>Remplissez le formulaire d'inscription → Acceptez les conditions → Accédez à la plateforme</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Modules de formation (40h)</h3>
+            <p><strong>Module 1 :</strong> Fondamentaux Digital | <strong>Module 2 :</strong> Search Marketing | <strong>Module 3 :</strong> Display | <strong>Module 4 :</strong> Social Media</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Regarder les courses en ligne</h3>
+            <p>37 cours avec vidéos en français. Vidéos interactives avec des cas pratiques réels.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Compléter les tâches pratiques</h3>
+            <p>Des exercices basés sur des scénarios réels. Appliquez ce que vous avez appris sur des cas d'études.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>Passer les examens</h3>
+            <p>Quiz à la fin de chaque module (80% minimum). Examen final (80% minimum pour certification).</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">7</div>
+          <div class="step-content">
+            <h3>Obtenir le certificat</h3>
+            <p>Certificat officiel Google → Shareable sur LinkedIn → PDF à télécharger</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <strong>💡 Conseil :</strong> Cette certification est très reconnue internationalement. Inscrivez-vous sur LinkedIn quand vous l'obtenez pour plus de visibilité.
+      </div>
+
+      <h3>✅ Checklist</h3>
+      <div class="checklist">
+        <ul>
+          <li>Inscription validée à Google Digital Active</li>
+          <li>Tous les modules (Module 1-4) : vidéos regardées</li>
+          <li>Tâches pratiques : 80% complétées</li>
+          <li>Quiz module 1, 2, 3, 4 : réussis (80%+)</li>
+          <li>Examen final : réussi (80%+)</li>
+          <li>Certificat téléchargé et partagé</li>
+          <li>Ajout sur LinkedIn</li>
+        </ul>
+      </div>
+
+      <a href="https://www.digitalessentiel.fr/" target="_blank" rel="noopener" class="action-link">
+        🚀 Commencer Google Digital Active
+      </a>
+    </div>
+
+    <!-- 4. SECNUMACADEMIE (ANSSI) -->
+    <div class="guide-container">
+      <div class="guide-header">
+        <div class="guide-icon">🛡️</div>
+        <div class="guide-title-section">
+          <h2>SecNumAcademie - RGPD en Communication</h2>
+          <div class="guide-meta">
+            <span class="meta-item">⏱️ 2-3 heures</span>
+            <span class="meta-item">💰 Gratuit</span>
+            <span class="meta-item">🏛️ Gouvernemental</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>📋 Pré-requis</h3>
+      <ul style="color: var(--muted);">
+        <li>Compte email</li>
+        <li>Compréhension basique du RGPD (HubSpot ou CNIL recommandé avant)</li>
+      </ul>
+
+      <h3>📝 Étapes Détaillées</h3>
+      <div class="step-list">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Accéder à SecNumAcademie</h3>
+            <p>Allez sur <strong>https://secnumacademie.gouv.fr/content</strong></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Créer un compte (gratuit)</h3>
+            <p>Email → Mot de passe → Confirmation → Connectez-vous à la plateforme</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Chercher le cours RGPD</h3>
+            <p>Utilisez la barre de recherche → Tapez "RGPD Communication" → Ouvrez le cours</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Suivre les modules</h3>
+            <p>Module 1 : Principes du RGPD | Module 2 : Communication digitale sécurisée | Module 3 : Bonnes pratiques</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Valider la compréhension</h3>
+            <p>Quiz interactif après chaque section. Pas obligatoire mais recommandé pour valider votre compréhension.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>Télécharger l'attestation</h3>
+            <p>À la fin : Attestation officielle ANSSI à télécharger au format PDF</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <strong>⚠️ Important :</strong> Platform gouvernementale française. Certificat officiel reconnu par les organisations publiques et privées.
+      </div>
+
+      <h3>✅ Checklist</h3>
+      <div class="checklist">
+        <ul>
+          <li>Compte SecNumAcademie créé</li>
+          <li>Cours "RGPD en Communication Digitale" trouvé</li>
+          <li>Module 1 (Principes) : complété</li>
+          <li>Module 2 (Communication sécurisée) : complété</li>
+          <li>Module 3 (Bonnes pratiques) : complété</li>
+          <li>Quiz de validation : passés</li>
+          <li>Attestation ANSSI : téléchargée</li>
+        </ul>
+      </div>
+
+      <a href="https://secnumacademie.gouv.fr/content" target="_blank" rel="noopener" class="action-link">
+        🚀 Accéder à SecNumAcademie
+      </a>
+    </div>
+
+    <!-- CALENDRIER RECOMMANDÉ -->
+    <section class="card">
+      <h2 style="color: var(--accent);">📅 Calendrier Recommandé d'Apprentissage</h2>
+      <p style="color: var(--muted); margin-bottom: 24px;">
+        Voici un ordre recommandé pour compléter les certifications dans l'année, en commençant par les fondamentaux :
+      </p>
+
+      <div class="timeline-progress">
+        <div class="progress-item">
+          <div class="duration">Mois 1-2</div>
+          <p class="progress-label"><strong>🎯 HubSpot + SecNum</strong><br/>Fondamentaux marketing et sécurité</p>
+        </div>
+        <div class="progress-item">
+          <div class="duration">Mois 2-3</div>
+          <p class="progress-label"><strong>📋 CNIL MOOC</strong><br/>RGPD officiel (inscription périodique)</p>
+        </div>
+        <div class="progress-item">
+          <div class="duration">Mois 3-5</div>
+          <p class="progress-label"><strong>🔍 Google Digital</strong><br/>Marketing avancé et analytics</p>
+        </div>
+        <div class="progress-item">
+          <div class="duration">Mois 5+</div>
+          <p class="progress-label"><strong>💼 Certifications avancées</strong><br/>Salesforce, EBIOS-RM, etc.</p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <strong>💡 Stratégie optimale :</strong> Terminez d'abord les 3 certifications gratuites (HubSpot, CNIL, ANSSI) avant de vous engager dans les programmes plus longs comme Google Digital Active.
+      </div>
+    </section>
+
+    <!-- SUIVI DE PROGRESSION -->
+    <section class="card">
+      <h2 style="color: var(--accent);">📊 Suivi de Votre Progression</h2>
+      
+      <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+          <tr style="border-bottom: 2px solid rgba(255, 138, 76, 0.2);">
+            <th style="text-align: left; padding: 12px; color: var(--accent);">Certification</th>
+            <th style="text-align: center; padding: 12px; color: var(--accent);">Durée</th>
+            <th style="text-align: center; padding: 12px; color: var(--accent);">Progression</th>
+            <th style="text-align: center; padding: 12px; color: var(--accent);">Date Complétée</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(255, 138, 76, 0.1);">
+            <td style="padding: 12px; color: var(--muted);">🎯 HubSpot Academy</td>
+            <td style="text-align: center; color: var(--muted);">8-10h</td>
+            <td style="text-align: center;"><input type="checkbox" style="cursor: pointer;"></td>
+            <td style="text-align: center;"><input type="date" style="background: rgba(18, 22, 28, 0.5); color: var(--muted); border: 1px solid rgba(255, 138, 76, 0.2); padding: 6px; border-radius: 4px; cursor: pointer;"></td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 138, 76, 0.1);">
+            <td style="padding: 12px; color: var(--muted);">📋 CNIL MOOC</td>
+            <td style="text-align: center; color: var(--muted);">3-4h</td>
+            <td style="text-align: center;"><input type="checkbox" style="cursor: pointer;"></td>
+            <td style="text-align: center;"><input type="date" style="background: rgba(18, 22, 28, 0.5); color: var(--muted); border: 1px solid rgba(255, 138, 76, 0.2); padding: 6px; border-radius: 4px; cursor: pointer;"></td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 138, 76, 0.1);">
+            <td style="padding: 12px; color: var(--muted);">🔍 Google Digital Active</td>
+            <td style="text-align: center; color: var(--muted);">40h</td>
+            <td style="text-align: center;"><input type="checkbox" style="cursor: pointer;"></td>
+            <td style="text-align: center;"><input type="date" style="background: rgba(18, 22, 28, 0.5); color: var(--muted); border: 1px solid rgba(255, 138, 76, 0.2); padding: 6px; border-radius: 4px; cursor: pointer;"></td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 138, 76, 0.1);">
+            <td style="padding: 12px; color: var(--muted);">🛡️ SecNumAcademie</td>
+            <td style="text-align: center; color: var(--muted);">2-3h</td>
+            <td style="text-align: center;"><input type="checkbox" style="cursor: pointer;"></td>
+            <td style="text-align: center;"><input type="date" style="background: rgba(18, 22, 28, 0.5); color: var(--muted); border: 1px solid rgba(255, 138, 76, 0.2); padding: 6px; border-radius: 4px; cursor: pointer;"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, rgba(255, 138, 76, 0.1), rgba(255, 138, 76, 0.05)); border-radius: 20px;">
+      <h2 style="margin-top: 0; color: var(--accent);">🚀 Prêt à Commencer ?</h2>
+      <p style="color: var(--muted); max-width: 600px; margin: 16px auto;">
+        Commencez par <strong>HubSpot Academy</strong> aujourd'hui. C'est gratuit, rapide et vous donnera une base solide en marketing digital.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+        <a href="https://academy.hubspot.fr/courses/digital-marketing" target="_blank" rel="noopener" class="button btn-primary">
+          🎯 HubSpot Academy
+        </a>
+        <a href="certifications.html" class="button btn-secondary">
+          📚 Voir Toutes les Certifications
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Portfolio MIAGE - Aziz Tlili.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
