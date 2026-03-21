@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mes Certifications - Portfolio MIAGE</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cert-obtained {
+      background: linear-gradient(160deg, rgba(18, 22, 28, 0.95), rgba(11, 15, 21, 0.9));
+      border: 2px solid rgba(76, 192, 192, 0.3);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 32px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cert-obtained::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(76, 192, 192, 0.1), transparent);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cert-obtained-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, rgba(76, 192, 192, 0.2), rgba(76, 192, 192, 0.1));
+      border: 1px solid rgba(76, 192, 192, 0.5);
+      border-radius: 50px;
+      color: #4cc0c0;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .cert-badge::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: #4cc0c0;
+      color: #0c1016;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    .cert-title {
+      font-size: 2rem;
+      color: var(--ink);
+      margin: 20px 0;
+      font-family: "Source Serif 4", serif;
+    }
+
+    .cert-provider {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255, 138, 76, 0.1);
+      border: 1px solid rgba(255, 138, 76, 0.2);
+      border-radius: 8px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .cert-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .detail-item {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 3px solid #4cc0c0;
+    }
+
+    .detail-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .detail-value {
+      font-size: 1rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .cert-description {
+      margin: 32px 0;
+      padding: 24px;
+      background: rgba(76, 192, 192, 0.05);
+      border-left: 3px solid #4cc0c0;
+      border-radius: 8px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .cert-skills {
+      margin: 24px 0;
+    }
+
+    .cert-skills h3 {
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, rgba(255, 138, 76, 0.1), rgba(255, 138, 76, 0.05));
+      border: 1px solid rgba(255, 138, 76, 0.2);
+      border-radius: 20px;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .skill-tag::before {
+      content: "▸";
+    }
+
+    .cert-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn-verify {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #4cc0c0, #3da5a5);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-verify:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(76, 192, 192, 0.3);
+    }
+
+    .btn-share {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-share:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(255, 138, 76, 0.3);
+    }
+
+    .progress-section {
+      background: linear-gradient(160deg, rgba(18, 22, 28, 0.8), rgba(11, 15, 21, 0.8));
+      border: 1px solid rgba(255, 138, 76, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 40px 0;
+    }
+
+    .progress-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .progress-icon {
+      font-size: 2.5rem;
+    }
+
+    .progress-header h2 {
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .progress-header p {
+      color: var(--muted);
+      margin: 4px 0 0;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 138, 76, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #ff6b4c);
+      width: 25%;
+      border-radius: 4px;
+      transition: width 0.6s ease;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 12px;
+    }
+
+    .next-certifications {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .next-cert-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 138, 76, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .next-cert-card:hover {
+      border-color: rgba(255, 138, 76, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .next-cert-card h3 {
+      color: var(--ink);
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+    }
+
+    .next-cert-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 0 0 12px;
+      line-height: 1.6;
+    }
+
+    .next-cert-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 138, 76, 0.1);
+    }
+
+    .duration {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .start-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(255, 138, 76, 0.1);
+      border: 1px solid rgba(255, 138, 76, 0.3);
+      color: var(--accent);
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .start-btn:hover {
+      border-color: var(--accent);
+      background: rgba(255, 138, 76, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .cert-obtained {
+        padding: 24px;
+      }
+
+      .cert-title {
+        font-size: 1.5rem;
+      }
+
+      .cert-details {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Navigation principale">
+    <div class="container">
+      <a href="index.html" class="nav-brand">Accueil</a>
+      <a href="travaux.html">Travaux</a>
+      <a href="cours.html">Cours</a>
+      <a href="projets.html">Projets</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="mes-certifications.html" aria-current="page">Mes Certifs</a>
+      <a href="about.html">Profil</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="page-header">
+      <h1>🎓 Mes Certifications Obtenues</h1>
+      <p class="lead">Certifications professionnelles validées et codes de vérification.</p>
+    </header>
+
+    <!-- CERTIFICATION HUBSPOT ACADEMY -->
+    <div class="cert-obtained">
+      <div class="cert-obtained-content">
+        <div class="cert-badge">Certification Vérifiée</div>
+
+        <h2 class="cert-title">Certifié(e) en Marketing Digital</h2>
+
+        <div class="cert-provider">
+          🎯 HubSpot Academy
+        </div>
+
+        <div class="cert-details">
+          <div class="detail-item">
+            <div class="detail-label">📅 Date d'Obtention</div>
+            <div class="detail-value">21 Mars 2026</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">⏱️ Durée de Validité</div>
+            <div class="detail-value">1 an (jusqu'au 20 Avril 2027)</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">🔐 Code de Certificat</div>
+            <div class="detail-value" style="font-family: monospace; font-size: 0.9rem;">8c4451dca3c4d509187642a004791</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">⭐ Niveau</div>
+            <div class="detail-value">Professionnel</div>
+          </div>
+        </div>
+
+        <div class="cert-description">
+          <strong>Description :</strong> Cette certification valide que je dispose des connaissances et compétences nécessaires pour déployer des techniques de marketing digital en mettant l'accent sur la méthodologie inbound. J'ai complété tous les modules de formation et réussi l'examen final avec succès.
+        </div>
+
+        <div class="cert-skills">
+          <h3>💡 Compétences Acquises</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Marketing Inbound</span>
+            <span class="skill-tag">Email Marketing</span>
+            <span class="skill-tag">Marketing Automation</span>
+            <span class="skill-tag">CRM HubSpot</span>
+            <span class="skill-tag">Stratégie Digitale</span>
+            <span class="skill-tag">Lead Generation</span>
+            <span class="skill-tag">Analytics</span>
+            <span class="skill-tag">Content Marketing</span>
+          </div>
+        </div>
+
+        <div class="cert-actions">
+          <a href="https://academy.hubspot.fr" target="_blank" rel="noopener" class="btn-verify">
+            🔗 Vérifier le Certificat
+          </a>
+          <a href="https://www.linkedin.com/in/aziz-tlili" target="_blank" rel="noopener" class="btn-share">
+            📲 Partager sur LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRESS SECTION -->
+    <section class="progress-section">
+      <div class="progress-header">
+        <div class="progress-icon">🚀</div>
+        <div>
+          <h2>Ma Progression</h2>
+          <p>Parcours de certification 2026</p>
+        </div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="progress-text">
+        <span><strong>1 certification</strong> obtenue</span>
+        <span><strong>4 total</strong> prévues</span>
+      </div>
+
+      <h3 style="color: var(--ink); margin-top: 32px; margin-bottom: 16px;">Prochaines Certifications</h3>
+      <div class="next-certifications">
+        <!-- CNIL MOOC -->
+        <div class="next-cert-card">
+          <h3>📋 CNIL MOOC</h3>
+          <p>Comprendre le RGPD et les obligations légales en matière de protection des données personnelles.</p>
+          <div class="next-cert-meta">
+            <span class="duration">⏱️ 3-4h</span>
+            <a href="guide-certifications.html#cnil" class="start-btn">Commencer →</a>
+          </div>
+        </div>
+
+        <!-- SecNumAcademie -->
+        <div class="next-cert-card">
+          <h3>🛡️ SecNumAcademie</h3>
+          <p>RGPD en communication digitale - Formation gouvernementale ANSSI sur la cybersécurité.</p>
+          <div class="next-cert-meta">
+            <span class="duration">⏱️ 2-3h</span>
+            <a href="guide-certifications.html#secnum" class="start-btn">Commencer →</a>
+          </div>
+        </div>
+
+        <!-- Google Digital Active -->
+        <div class="next-cert-card">
+          <h3>🔍 Google Digital Active</h3>
+          <p>Certification internationale en marketing digital avec focus sur SEO, SEM et analytics.</p>
+          <div class="next-cert-meta">
+            <span class="duration">⏱️ 40h</span>
+            <a href="guide-certifications.html#google" class="start-btn">Commencer →</a>
+          </div>
+        </div>
+
+        <!-- Salesforce -->
+        <div class="next-cert-card">
+          <h3>💼 Salesforce Foundations</h3>
+          <p>Fondamentaux de Salesforce CRM - Certification de base pour utilisateurs CRM.</p>
+          <div class="next-cert-meta">
+            <span class="duration">⏱️ 20h</span>
+            <a href="guide-certifications.html" class="start-btn">En savoir plus →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIONS CTA -->
+    <section style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, rgba(255, 138, 76, 0.1), rgba(255, 138, 76, 0.05)); border-radius: 20px;">
+      <h2 style="margin-top: 0; color: var(--accent);">📚 Continuer l'Apprentissage</h2>
+      <p style="color: var(--muted); max-width: 600px; margin: 16px auto;">
+        Excellent début ! Continue avec les autres certifications pour compléter ton parcours professionnel et valider tes compétences en sécurité, données et marketing avancé.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+        <a href="guide-certifications.html" class="button btn-primary">
+          📖 Guide des Certifications
+        </a>
+        <a href="certifications.html" class="button btn-secondary">
+          📚 Voir Toutes les Certifications
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Portfolio MIAGE - Aziz Tlili.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
