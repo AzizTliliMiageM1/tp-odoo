@@ -314,6 +314,67 @@
       background: rgba(255, 138, 76, 0.2);
     }
 
+    .cert-image-section {
+      margin: 32px 0;
+      text-align: center;
+    }
+
+    .cert-image-section h3 {
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .cert-image-wrapper {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(76, 192, 192, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cert-image-wrapper:hover {
+      border-color: rgba(76, 192, 192, 0.5);
+      box-shadow: 0 15px 50px rgba(76, 192, 192, 0.2);
+    }
+
+    .cert-image-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .cert-placeholder {
+      background: linear-gradient(135deg, rgba(76, 192, 192, 0.1), rgba(76, 192, 192, 0.05));
+      border: 2px dashed rgba(76, 192, 192, 0.3);
+      border-radius: 8px;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .download-cert-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #4cc0c0, #3da5a5);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-top: 16px;
+    }
+
+    .download-cert-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(76, 192, 192, 0.3);
+    }
+
     @media (max-width: 768px) {
       .cert-obtained {
         padding: 24px;
@@ -325,6 +386,10 @@
 
       .cert-details {
         grid-template-columns: 1fr;
+      }
+
+      .cert-image-wrapper {
+        max-width: 100%;
       }
     }
   </style>
@@ -370,7 +435,7 @@
           </div>
           <div class="detail-item">
             <div class="detail-label">🔐 Code de Certificat</div>
-            <div class="detail-value" style="font-family: monospace; font-size: 0.9rem;">8c4451dca3c4d509187642a004791</div>
+            <div class="detail-value" style="font-family: monospace; font-size: 0.9rem;">8cd4521dca3c4d5091876424a0041791</div>
           </div>
           <div class="detail-item">
             <div class="detail-label">⭐ Niveau</div>
@@ -380,6 +445,17 @@
 
         <div class="cert-description">
           <strong>Description :</strong> Cette certification valide que je dispose des connaissances et compétences nécessaires pour déployer des techniques de marketing digital en mettant l'accent sur la méthodologie inbound. J'ai complété tous les modules de formation et réussi l'examen final avec succès.
+        </div>
+
+        <!-- CERTIFICAT IMAGE -->
+        <div class="cert-image-section">
+          <h3>📜 Certificat Officiel</h3>
+          <div class="cert-image-wrapper">
+            <img src="PDF/certificat_hubspot_marketing_digital.png" alt="Certificat HubSpot Academy - Marketing Digital" />
+          </div>
+          <a href="PDF/certificat_hubspot_marketing_digital.png" download class="download-cert-btn">
+            ⬇️ Télécharger le Certificat
+          </a>
         </div>
 
         <div class="cert-skills">
